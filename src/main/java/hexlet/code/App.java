@@ -1,4 +1,4 @@
-package java-project-lvl1.code
+package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
