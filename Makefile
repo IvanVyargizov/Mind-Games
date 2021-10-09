@@ -6,3 +6,11 @@ run-dist: #запуск исполняемого файла
 
 check-update: #проверка обновлений зависимостей и плагинов gradle
 	./gradlew dependencyUpdates
+
+lint: #выполняет проверку стиля кодирования
+	./gradlew checkstyleMain
+
+build: #выполняет сборку проекта
+	./gradlew clean build
+
+.PHONY: build
