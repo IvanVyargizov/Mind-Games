@@ -8,7 +8,7 @@ public class Even {
         final int endValue = 1000;
         final int breakNumber = 5;
         final int maxCounter = 3;
-        Cli.toGreet();
+        Greet.toGreet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner scAnswer = new Scanner(System.in);
         int counter = 0;
@@ -23,7 +23,7 @@ public class Even {
                 counter = breakNumber;
             }
         }
-        System.out.println(counter == breakNumber ? "Your answer is wrong :(.\nLet's try again " + Cli.getName() + "!"
-                : "Congratulations, " + Cli.getName() + "!");
+        System.out.println(counter == breakNumber ? "Your answer is wrong :(.\nLet's try again " + Greet.getName() + "!"
+                : "Congratulations, " + Greet.getName() + "!");
     }
 }

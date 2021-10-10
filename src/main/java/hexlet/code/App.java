@@ -9,7 +9,7 @@ public class App {
         String choice = scChoice.nextLine();
         System.out.println("Your choice: " + choice + "\n");
         switch (choice) {
-            case "1" -> Cli.toGreet();
+            case "1" -> Greet.toGreet();
             case "2" -> Even.isEven();
             case "0" -> System.out.println("See you again!");
             default -> System.out.println("Your choice is incorrect, please try again ;)");
