@@ -8,7 +8,7 @@ public class Greet {
         System.out.println("Welcome to the Brain Games!\nMay I have your name?");
         Scanner scName = new Scanner(System.in);
         name = scName.nextLine();
-        System.out.println("Hello, " + name);
+        System.out.println("\nHello, " + name);
     }
 
     public static String getName() {

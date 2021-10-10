@@ -23,7 +23,7 @@ public class Even {
                 counter = breakNumber;
             }
         }
-        System.out.println(counter == breakNumber ? "Your answer is wrong :(.\nLet's try again " + Greet.getName() + "!"
-                : "Congratulations, " + Greet.getName() + "!");
+        System.out.println(counter == breakNumber ? "\nYour answer is wrong :(.\nLet's try again, "
+                + Greet.getName() + "!" : "Congratulations, " + Greet.getName() + "!");
     }
 }
