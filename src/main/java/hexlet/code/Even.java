@@ -9,7 +9,7 @@ public class Even {
         final int breakNumber = 5;
         final int maxCounter = 3;
         Greet.toGreet();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n");
         Scanner scAnswer = new Scanner(System.in);
         int counter = 0;
         while (counter < maxCounter) {
@@ -17,7 +17,7 @@ public class Even {
             System.out.println(randomInt);
             String answer = scAnswer.nextLine();
             if ((randomInt % 2 == 0 && answer.equals("yes")) || (randomInt % 2 != 0 && answer.equals("no"))) {
-                System.out.println("Correct!");
+                System.out.println("Correct!\n");
                 counter += 1;
             } else {
                 counter = breakNumber;
