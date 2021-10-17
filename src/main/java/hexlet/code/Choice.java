@@ -13,6 +13,7 @@ public class Choice {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
         Scanner scChoice = new Scanner(System.in);
         choice = scChoice.nextLine();
