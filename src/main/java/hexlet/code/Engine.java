@@ -59,7 +59,7 @@ public class Engine {
     public static void initializationLoop(String[][] arrayOfEquationAndAnswer) {
         int counter = 0;
         while (counter <= Engine.getMaxIteration()) {
-            System.out.println(arrayOfEquationAndAnswer[getLineOfEquation()][counter]);
+            System.out.println("Question: " + arrayOfEquationAndAnswer[getLineOfEquation()][counter]);
             if (!Engine.compareAnswers(arrayOfEquationAndAnswer[getLineOfAnswer()][counter])
                     .equals(getOutputCorrect())) {
                 break;
