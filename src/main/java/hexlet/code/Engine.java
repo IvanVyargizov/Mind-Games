@@ -35,15 +35,15 @@ public class Engine {
         return scAnswer.nextLine();
     }
 
-    public static String getOutputCorrect() {
+    private static String getOutputCorrect() {
         return "Correct!\n";
     }
 
-    public static void getCongratulations() {
+    private static void getCongratulations() {
         System.out.println("Congratulations, " + Greet.getName() + "!");
     }
 
-    public static String compareAnswers(String correctAnswer) {
+    private static String compareAnswers(String correctAnswer) {
         String playerAnswer = getAnswer();
         String output;
         if (correctAnswer.equals(playerAnswer)) {

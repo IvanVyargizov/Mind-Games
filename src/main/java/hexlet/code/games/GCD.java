@@ -5,14 +5,14 @@ import hexlet.code.Greet;
 
 public class GCD {
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("Find the greatest common divisor of given numbers.\n");
-    }
-
     public static void isGCD() {
         Greet.toGreet();
         printConditionsOfTheGame();
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
+    }
+
+    private static void printConditionsOfTheGame() {
+        System.out.println("Find the greatest common divisor of given numbers.\n");
     }
 
     private static int getDifferenceABS(int firstNumber, int secondNumber) {
@@ -41,4 +41,5 @@ public class GCD {
         }
         return arrayOfEquationAndAnswer;
     }
+
 }

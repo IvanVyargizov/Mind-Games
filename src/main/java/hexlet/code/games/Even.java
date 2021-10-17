@@ -5,14 +5,14 @@ import hexlet.code.Greet;
 
 public class Even {
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n");
-    }
-
     public static void isEven() {
         Greet.toGreet();
         printConditionsOfTheGame();
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
+    }
+
+    private static void printConditionsOfTheGame() {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n");
     }
 
     private static String[][] getArrayOfEquationAndAnswer() {

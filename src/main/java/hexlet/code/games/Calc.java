@@ -7,18 +7,18 @@ import java.util.Random;
 
 public class Calc {
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("What is the result of the expression?\n");
-    }
-
     public static void toCalc() {
         Greet.toGreet();
         printConditionsOfTheGame();
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
     }
 
+    private static void printConditionsOfTheGame() {
+        System.out.println("What is the result of the expression?\n");
+    }
+
     private static String[][] getArrayOfEquationAndAnswer() {
-        final Random random = new Random();
+        Random random = new Random();
         final int limitOfRandom = 3;
         String[][] arrayOfEquationAndAnswer = new String[Engine.getLengthOfArray()][Engine.getLengthOfArray()];
         for (int i = 0; i <= Engine.getMaxIteration(); i++) {
