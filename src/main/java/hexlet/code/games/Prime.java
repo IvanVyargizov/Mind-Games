@@ -31,7 +31,7 @@ public class Prime {
         } else if (number == 2) {
             return "yes";
         } else {
-            int i = number / 2 - 1;
+            int i = number / 2;
             while (i != 1) {
                 if (number % i == 0) {
                     return "no";
