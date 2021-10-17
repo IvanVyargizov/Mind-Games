@@ -26,19 +26,19 @@ public class Calc {
             int secondNumber = Engine.getRandomNumber();
             switch (random.nextInt(limitOfRandom)) {
                 case 0 -> {
-                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = "Question: " + firstNumber
+                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = firstNumber
                             + " " + "+" + " " + secondNumber;
                     arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = Integer
                             .toString(firstNumber + secondNumber);
                 }
                 case 1 -> {
-                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = "Question: " + firstNumber
+                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = firstNumber
                             + " " + "-" + " " + secondNumber;
                     arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = Integer
                             .toString(firstNumber - secondNumber);
                 }
                 case 2 -> {
-                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = "Question: " + firstNumber
+                    arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = firstNumber
                             + " " + "*" + " " + secondNumber;
                     arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = Integer
                             .toString(firstNumber * secondNumber);
