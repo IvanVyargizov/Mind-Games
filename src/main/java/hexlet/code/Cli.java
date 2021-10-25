@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class Cli {
     public static void toGreet() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("May I have your name?");
+        System.out.println("Welcome to the Brain Games!\nMay I have your name?\n");
         String name = sc.nextLine();
-        System.out.println("Hello, " + name);
-        sc.close();
+        System.out.println("\nHello, " + name + "!");
     }
 }
 
