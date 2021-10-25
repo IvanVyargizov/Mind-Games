@@ -1,27 +1,25 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Greet;
 
 import java.util.Random;
 
 public class Progression {
 
     public static void findProgression() {
-        Greet.toGreet();
-        printConditionsOfTheGame();
+        Engine.toGreet();
+        Engine.printConditionsOfTheGame(CONDITIONS_OF_THE_GAME);
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
     }
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("What number is missing in the progression?\n");
-    }
+    private static final String CONDITIONS_OF_THE_GAME = "What number is missing in the progression?";
 
     private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer = new String[Engine.getLengthOfArray()][Engine.getLengthOfArray()];
-        for (int i = 0; i <= Engine.getMaxIteration(); i++) {
-            arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = getMissProgression(getProgression());
-            arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = answer;
+        String[][] arrayOfEquationAndAnswer
+                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
+        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
+            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = getMissProgression(getProgression());
+            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = answer;
         }
         return arrayOfEquationAndAnswer;
     }

@@ -4,24 +4,21 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int MAX_ITERATION = 2;
-    private static final int LINE_OF_EQUATION = 0;
-    private static final int LINE_OF_ANSWER = 1;
+    public static final int MAX_ITERATION = 2;
+    public static final int LINE_OF_EQUATION = 0;
+    public static final int LINE_OF_ANSWER = 1;
+    public static final int LENGTH_OF_ARRAY_WHEN_WIN = MAX_ITERATION + 1;
 
-    public static int getMaxIteration() {
-        return MAX_ITERATION;
+    private static String name;
+    public static void toGreet() {
+        System.out.println("Welcome to the Brain Games!\nMay I have your name?\n");
+        Scanner scName = new Scanner(System.in);
+        name = scName.nextLine();
+        System.out.println("\nHello, " + name + "!\n");
     }
 
-    public static int getLineOfEquation() {
-        return LINE_OF_EQUATION;
-    }
-
-    public static int getLineOfAnswer() {
-        return LINE_OF_ANSWER;
-    }
-
-    public static int getLengthOfArray() {
-        return getMaxIteration() + 1;
+    public static void printConditionsOfTheGame(String conditionsOfTheGame) {
+        System.out.println(conditionsOfTheGame + "\n");
     }
 
     public static int getRandomNumber() {
@@ -40,7 +37,7 @@ public class Engine {
     }
 
     private static void getCongratulations() {
-        System.out.println("Congratulations, " + Greet.getName() + "!");
+        System.out.println("Congratulations, " + name + "!");
     }
 
     private static String compareAnswers(String correctAnswer) {
@@ -50,7 +47,7 @@ public class Engine {
             output = getOutputCorrect();
         } else {
             output = "\n" + "'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was"
-                    + " '" + correctAnswer + "'." + "\nLet's try again, " + Greet.getName() + "!";
+                    + " '" + correctAnswer + "'." + "\nLet's try again, " + name + "!";
         }
         System.out.println(output);
         return output;
@@ -58,16 +55,16 @@ public class Engine {
 
     public static void initializationLoop(String[][] arrayOfEquationAndAnswer) {
         int counter = 0;
-        while (counter <= Engine.getMaxIteration()) {
-            System.out.println("Question: " + arrayOfEquationAndAnswer[getLineOfEquation()][counter]);
-            if (!Engine.compareAnswers(arrayOfEquationAndAnswer[getLineOfAnswer()][counter])
+        while (counter <= Engine.MAX_ITERATION) {
+            System.out.println("Question: " + arrayOfEquationAndAnswer[LINE_OF_EQUATION][counter]);
+            if (!Engine.compareAnswers(arrayOfEquationAndAnswer[LINE_OF_ANSWER][counter])
                     .equals(getOutputCorrect())) {
                 break;
             } else {
                 counter++;
             }
         }
-        if (counter == getLengthOfArray()) {
+        if (counter == LENGTH_OF_ARRAY_WHEN_WIN) {
             getCongratulations();
         }
     }

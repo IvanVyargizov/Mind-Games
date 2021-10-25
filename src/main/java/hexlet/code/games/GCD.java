@@ -1,19 +1,16 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Greet;
 
 public class GCD {
 
     public static void isGCD() {
-        Greet.toGreet();
-        printConditionsOfTheGame();
+        Engine.toGreet();
+        Engine.printConditionsOfTheGame(CONDITIONS_OF_THE_GAME);
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
     }
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("Find the greatest common divisor of given numbers.\n");
-    }
+    private static final String CONDITIONS_OF_THE_GAME = "Find the greatest common divisor of given numbers.";
 
     private static int getDifferenceABS(int firstNumber, int secondNumber) {
         return Math.max(Math.abs(firstNumber), Math.abs(secondNumber))
@@ -25,11 +22,12 @@ public class GCD {
     }
 
     private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer = new String[Engine.getLengthOfArray()][Engine.getLengthOfArray()];
-        for (int i = 0; i <= Engine.getMaxIteration(); i++) {
+        String[][] arrayOfEquationAndAnswer
+                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
+        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
             int firstNumber = Engine.getRandomNumber();
             int secondNumber = Engine.getRandomNumber();
-            arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = firstNumber + " " + secondNumber;
+            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber + " " + secondNumber;
             int difference = getDifferenceABS(firstNumber, secondNumber);
             int minNumber = getMinNumberABS(firstNumber, secondNumber);
             while (difference != minNumber) {
@@ -37,7 +35,7 @@ public class GCD {
                 difference = getDifferenceABS(difference, minNumber);
                 minNumber = getMinNumberABS(firstNumber, minNumber);
             }
-            arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = Integer.toString(minNumber);
+            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(minNumber);
         }
         return arrayOfEquationAndAnswer;
     }

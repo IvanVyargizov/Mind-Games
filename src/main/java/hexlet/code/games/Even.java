@@ -1,26 +1,24 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Greet;
 
 public class Even {
 
     public static void isEven() {
-        Greet.toGreet();
-        printConditionsOfTheGame();
+        Engine.toGreet();
+        Engine.printConditionsOfTheGame(CONDITIONS_OF_THE_GAME);
         Engine.initializationLoop(getArrayOfEquationAndAnswer());
     }
 
-    private static void printConditionsOfTheGame() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n");
-    }
+    private static final String CONDITIONS_OF_THE_GAME = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer = new String[Engine.getLengthOfArray()][Engine.getLengthOfArray()];
-        for (int i = 0; i <= Engine.getMaxIteration(); i++) {
+        String[][] arrayOfEquationAndAnswer
+                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
+        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
             int equationToSolve = Engine.getRandomNumber();
-            arrayOfEquationAndAnswer[Engine.getLineOfEquation()][i] = Integer.toString(equationToSolve);
-            arrayOfEquationAndAnswer[Engine.getLineOfAnswer()][i] = equationToSolve % 2 == 0 ? "yes" : "no";
+            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = Integer.toString(equationToSolve);
+            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = equationToSolve % 2 == 0 ? "yes" : "no";
         }
         return arrayOfEquationAndAnswer;
     }
