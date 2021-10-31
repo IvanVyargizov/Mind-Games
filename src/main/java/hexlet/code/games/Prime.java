@@ -5,9 +5,7 @@ import hexlet.code.Engine;
 public class Prime {
 
     public static void isPrime() {
-        Engine.toGreet();
-        Engine.printConditionsOfTheGame(CONDITIONS_OF_THE_GAME);
-        Engine.initializationLoop(getArrayOfEquationAndAnswer());
+        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
     }
 
     private static final String CONDITIONS_OF_THE_GAME

@@ -7,9 +7,7 @@ import java.util.Random;
 public class Progression {
 
     public static void findProgression() {
-        Engine.toGreet();
-        Engine.printConditionsOfTheGame(CONDITIONS_OF_THE_GAME);
-        Engine.initializationLoop(getArrayOfEquationAndAnswer());
+        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
     }
 
     private static final String CONDITIONS_OF_THE_GAME = "What number is missing in the progression?";

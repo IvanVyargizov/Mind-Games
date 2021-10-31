@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        toChoice();
-        switch (choice) {
+        String playerChoice = printGamesAndGetPlayerChoice();
+        switch (playerChoice) {
             case "1" -> Cli.toGreet();
             case "2" -> Even.isEven();
             case "3" -> Calc.toCalc();
@@ -22,8 +22,7 @@ public class App {
         }
     }
 
-    private static String choice;
-    private static void toChoice() {
+    private static String printGamesAndGetPlayerChoice() {
         System.out.println("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -32,9 +31,11 @@ public class App {
                 4 - GCD
                 5 - Progression
                 6 - Prime
-                0 - Exit""");
+                0 - Exit
+                """);
         Scanner scChoice = new Scanner(System.in);
-        choice = scChoice.nextLine();
-        System.out.println("Your choice: " + choice + "\n");
+        String choice = scChoice.nextLine();
+        System.out.println("\nYour choice: " + choice + "\n");
+        return choice;
     }
 }
