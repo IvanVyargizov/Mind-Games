@@ -28,12 +28,16 @@ public class GCD {
             arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber + " " + secondNumber;
             int difference = getDifferenceABS(firstNumber, secondNumber);
             int minNumber = getMinNumberABS(firstNumber, secondNumber);
-            while (difference != minNumber) {
-                firstNumber = difference;
-                difference = getDifferenceABS(difference, minNumber);
-                minNumber = getMinNumberABS(firstNumber, minNumber);
+            if (minNumber == 0) {
+                arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(difference);
+            } else {
+                while (difference != minNumber) {
+                    firstNumber = difference;
+                    difference = getDifferenceABS(difference, minNumber);
+                    minNumber = getMinNumberABS(firstNumber, minNumber);
+                }
+                arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(minNumber);
             }
-            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(minNumber);
         }
         return arrayOfEquationAndAnswer;
     }
