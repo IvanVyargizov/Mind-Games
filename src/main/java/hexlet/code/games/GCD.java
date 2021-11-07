@@ -11,13 +11,8 @@ public class GCD {
 
     private static final String CONDITION_GAME = "Find the greatest common divisor of given numbers.";
 
-    private static int getDifferenceABS(int firstNumber, int secondNumber) {
-        return Math.max(Math.abs(firstNumber), Math.abs(secondNumber))
-                - Math.min(Math.abs(firstNumber), Math.abs(secondNumber));
-    }
-
-    private static int getMinNumberABS(int firstNumber, int secondNumber) {
-        return Math.min(Math.abs(firstNumber), Math.abs(secondNumber));
+    private static int difference(int firstNumber, int secondNumber) {
+        return Math.max(firstNumber, secondNumber) - Math.min(firstNumber, secondNumber);
     }
 
     private static String[][] getQuestionsAndAnswers() {
@@ -26,15 +21,15 @@ public class GCD {
             int firstNumber = Math.abs(Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT));
             int secondNumber = Math.abs(Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT));
             questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber + " " + secondNumber;
-            int difference = getDifferenceABS(firstNumber, secondNumber);
-            int minNumber = getMinNumberABS(firstNumber, secondNumber);
+            int difference = difference(firstNumber, secondNumber);
+            int minNumber = Math.min(firstNumber, secondNumber);
             if (minNumber == 0) {
                 questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer.toString(difference);
             } else {
                 while (difference != minNumber) {
                     firstNumber = difference;
-                    difference = getDifferenceABS(difference, minNumber);
-                    minNumber = getMinNumberABS(firstNumber, minNumber);
+                    difference = difference(difference, minNumber);
+                    minNumber = Math.min(firstNumber, minNumber);
                 }
                 questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer.toString(minNumber);
             }
