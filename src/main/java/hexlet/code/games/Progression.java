@@ -1,25 +1,25 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
 public class Progression {
 
     public static void findProgression() {
-        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
+        Engine.run(CONDITION_GAME, getQuestionsAndAnswers());
     }
 
-    private static final String CONDITIONS_OF_THE_GAME = "What number is missing in the progression?";
+    private static final String CONDITION_GAME = "What number is missing in the progression?";
 
-    private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer
-                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
-        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
-            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = getMissProgression(getProgression());
-            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = answer;
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = getMissProgression(getProgression());
+            questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = answer;
         }
-        return arrayOfEquationAndAnswer;
+        return questionsAndAnswers;
     }
 
     private static int[] getProgression() {
@@ -34,7 +34,7 @@ public class Progression {
         final int minStepOfProgression = -25;
         int stepOfProgression = step.nextInt(maxStepOfProgression) + minStepOfProgression;
 
-        int elementOfProgression = Engine.getRandomNumber();
+        int elementOfProgression = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
         for (int i = 0; i < lengthOfProgression; i++) {
             progression[i] = elementOfProgression;
             elementOfProgression += stepOfProgression;

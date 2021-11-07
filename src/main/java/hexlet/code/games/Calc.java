@@ -1,48 +1,48 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
 public class Calc {
 
     public static void toCalc() {
-        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
+        Engine.run(CONDITION_GAME, getQuestionsAndAnswers());
     }
 
-    private static final String CONDITIONS_OF_THE_GAME = "What is the result of the expression?";
+    private static final String CONDITION_GAME = "What is the result of the expression?";
 
-    private static String[][] getArrayOfEquationAndAnswer() {
+    private static String[][] getQuestionsAndAnswers() {
         Random random = new Random();
         final int limitOfRandom = 3;
-        String[][] arrayOfEquationAndAnswer
-                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
-        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
-            int firstNumber = Engine.getRandomNumber();
-            int secondNumber = Engine.getRandomNumber();
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int firstNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
+            int secondNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
             switch (random.nextInt(limitOfRandom)) {
                 case 0 -> {
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber
+                    questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber
                             + " " + "+" + " " + secondNumber;
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer
+                    questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer
                             .toString(firstNumber + secondNumber);
                 }
                 case 1 -> {
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber
+                    questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber
                             + " " + "-" + " " + secondNumber;
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer
+                    questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer
                             .toString(firstNumber - secondNumber);
                 }
                 case 2 -> {
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber
+                    questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber
                             + " " + "*" + " " + secondNumber;
-                    arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer
+                    questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer
                             .toString(firstNumber * secondNumber);
                 }
                 default -> System.out.println("UNKNOWN ERROR");
             }
         }
-        return arrayOfEquationAndAnswer;
+        return questionsAndAnswers;
     }
 
 }

@@ -1,25 +1,25 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
 
     public static void isPrime() {
-        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
+        Engine.run(CONDITION_GAME, getQuestionsAndAnswers());
     }
 
-    private static final String CONDITIONS_OF_THE_GAME
+    private static final String CONDITION_GAME
             = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer
-                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
-        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
-            int equationToSolve = Math.abs(Engine.getRandomNumber()) + 1;
-            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = Integer.toString(equationToSolve);
-            arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = prime(equationToSolve);
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int questionToSolve = Math.abs(Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT)) + 1;
+            questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = Integer.toString(questionToSolve);
+            questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = prime(questionToSolve);
         }
-        return arrayOfEquationAndAnswer;
+        return questionsAndAnswers;
     }
 
     private static String prime(int number) {

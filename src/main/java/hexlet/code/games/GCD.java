@@ -1,14 +1,15 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
 
     public static void isGCD() {
-        Engine.initializationLoop(CONDITIONS_OF_THE_GAME, getArrayOfEquationAndAnswer());
+        Engine.run(CONDITION_GAME, getQuestionsAndAnswers());
     }
 
-    private static final String CONDITIONS_OF_THE_GAME = "Find the greatest common divisor of given numbers.";
+    private static final String CONDITION_GAME = "Find the greatest common divisor of given numbers.";
 
     private static int getDifferenceABS(int firstNumber, int secondNumber) {
         return Math.max(Math.abs(firstNumber), Math.abs(secondNumber))
@@ -19,27 +20,26 @@ public class GCD {
         return Math.min(Math.abs(firstNumber), Math.abs(secondNumber));
     }
 
-    private static String[][] getArrayOfEquationAndAnswer() {
-        String[][] arrayOfEquationAndAnswer
-                = new String[Engine.LENGTH_OF_ARRAY_WHEN_WIN][Engine.LENGTH_OF_ARRAY_WHEN_WIN];
-        for (int i = 0; i <= Engine.MAX_ITERATION; i++) {
-            int firstNumber = Engine.getRandomNumber();
-            int secondNumber = Engine.getRandomNumber();
-            arrayOfEquationAndAnswer[Engine.LINE_OF_EQUATION][i] = firstNumber + " " + secondNumber;
+    private static String[][] getQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int firstNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
+            int secondNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
+            questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber + " " + secondNumber;
             int difference = getDifferenceABS(firstNumber, secondNumber);
             int minNumber = getMinNumberABS(firstNumber, secondNumber);
             if (minNumber == 0) {
-                arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(difference);
+                questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer.toString(difference);
             } else {
                 while (difference != minNumber) {
                     firstNumber = difference;
                     difference = getDifferenceABS(difference, minNumber);
                     minNumber = getMinNumberABS(firstNumber, minNumber);
                 }
-                arrayOfEquationAndAnswer[Engine.LINE_OF_ANSWER][i] = Integer.toString(minNumber);
+                questionsAndAnswers[Engine.LINE_OF_ANSWERS][i] = Integer.toString(minNumber);
             }
         }
-        return arrayOfEquationAndAnswer;
+        return questionsAndAnswers;
     }
 
 }
