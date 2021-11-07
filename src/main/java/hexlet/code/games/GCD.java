@@ -23,8 +23,8 @@ public class GCD {
     private static String[][] getQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS][Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int firstNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
-            int secondNumber = Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT);
+            int firstNumber = Math.abs(Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT));
+            int secondNumber = Math.abs(Utils.getRandomNumber(Utils.BOTTOM_LIMIT, Utils.UPPER_LIMIT));
             questionsAndAnswers[Engine.LINE_OF_QUESTIONS][i] = firstNumber + " " + secondNumber;
             int difference = getDifferenceABS(firstNumber, secondNumber);
             int minNumber = getMinNumberABS(firstNumber, secondNumber);
