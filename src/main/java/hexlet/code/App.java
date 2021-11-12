@@ -15,11 +15,11 @@ public class App {
         System.out.println("\nYour choice: " + choice + "\n");
         switch (choice) {
             case "1" -> Cli.greeting();
-            case "2" -> Even.isEven();
-            case "3" -> Calc.toCalc();
-            case "4" -> GCD.isGCD();
-            case "5" -> Progression.findProgression();
-            case "6" -> Prime.isPrime();
+            case "2" -> Even.run();
+            case "3" -> Calc.run();
+            case "4" -> GCD.run();
+            case "5" -> Progression.run();
+            case "6" -> Prime.run();
             case "0" -> System.out.println("See you again!");
             default -> System.out.println("Your choice is incorrect, please try again ;)");
         }

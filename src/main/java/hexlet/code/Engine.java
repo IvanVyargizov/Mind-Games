@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static final int LINE_OF_QUESTIONS = 0;
-    public static final int LINE_OF_ANSWERS = 1;
     public static final int ROUNDS = 3;
+    private static final int LINE_OF_QUESTIONS = 0;
+    private static final int LINE_OF_ANSWERS = 1;
 
     public static void run(String rules, String[][] questionsAndAnswers) {
         System.out.println("Welcome to the Brain Games!\nMay I have your name?\n");
@@ -14,7 +14,7 @@ public class Engine {
         String playerName = scName.nextLine();
         System.out.println("\nHello, " + playerName + "!\n");
         System.out.println(rules + "\n");
-        for (int i = 0; i < questionsAndAnswers.length; i++) {
+        for (int i = 0; i < ROUNDS; i++) {
             String question = questionsAndAnswers[LINE_OF_QUESTIONS][i];
             String answer = questionsAndAnswers[LINE_OF_ANSWERS][i];
             System.out.println("Question: " + question);
