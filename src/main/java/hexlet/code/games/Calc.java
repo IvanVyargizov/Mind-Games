@@ -15,27 +15,19 @@ public class Calc {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstNumber = Utils.getRandomNumber(Utils.MIN, Utils.MAX);
             int secondNumber = Utils.getRandomNumber(Utils.MIN, Utils.MAX);
-            int index = Utils.getRandomNumber(maxIndex);
+            int index = Utils.getRandomNumber(0, maxIndex);
             questions[i] = firstNumber + " " + OPERATORS[index] + " " + secondNumber;
-            answers[i] = getAnswer(firstNumber, secondNumber, index);
+            answers[i] = calculate(firstNumber, secondNumber, index);
         }
         Engine.run(CONDITION_GAME, new String[][] {questions, answers});
     }
 
-    private static String getAnswer(int firstNumber, int secondNumber, int index) {
-        switch (OPERATORS[index]) {
-            case "+" -> {
-                return String.valueOf(firstNumber + secondNumber);
-            }
-            case "-" -> {
-                return String.valueOf(firstNumber - secondNumber);
-            }
-            case "*" -> {
-                return String.valueOf(firstNumber * secondNumber);
-            }
-            default -> {
-                return null;
-            }
-        }
+    private static String calculate(int firstNumber, int secondNumber, int index) {
+        return switch (OPERATORS[index]) {
+            case "+" -> String.valueOf(firstNumber + secondNumber);
+            case "-" -> String.valueOf(firstNumber - secondNumber);
+            case "*" -> String.valueOf(firstNumber * secondNumber);
+            default -> null;
+        };
     }
 }

@@ -12,9 +12,4 @@ public class Utils {
         return  inclusiveMin + random.nextInt(inclusiveMax + 1);
     }
 
-    public static int getRandomNumber(int inclusiveMax) {
-        Random random = new Random();
-        return random.nextInt(inclusiveMax + 1);
-    }
-
 }

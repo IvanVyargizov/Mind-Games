@@ -6,43 +6,39 @@ import hexlet.code.Utils;
 public class Progression {
 
     private static final String CONDITION_GAME = "What number is missing in the progression?";
-    private static String answer;
+    private static final int MAX_PROGRESSION_LENGTH = 6;
+    private static final int MIN_PROGRESSION_LENGTH = 5;
+    private static final int MAX_PROGRESSION_STEP = 51;
+    private static final int MIN_PROGRESSION_STEP = -25;
 
     public static void run() {
         String[] questions = new String[Engine.ROUNDS];
         String[] answers = new String[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            questions[i] = getQuestions(getProgression());
-            answers[i] = answer;
+            int progressionLength = Utils.getRandomNumber(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int progressionStep = Utils.getRandomNumber(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+            int progressionElement = Utils.getRandomNumber(Utils.MIN, Utils.MAX);
+            int answerIndex = Utils.getRandomNumber(0, progressionLength - 1);
+            int[] progression = buildProgression(progressionLength, progressionStep, progressionElement);
+            questions[i] = makeQuestion(progression, answerIndex);
+            answers[i] = String.valueOf(progression[answerIndex]);
         }
         Engine.run(CONDITION_GAME, new String[][] {questions, answers});
     }
 
-    private static int[] getProgression() {
-        final int maxLengthOfProgression = 6;
-        final int minLengthOfProgression = 5;
-        int lengthOfProgression = Utils.getRandomNumber(minLengthOfProgression, maxLengthOfProgression);
-        int[] progression = new int[lengthOfProgression];
-
-        final int maxStepOfProgression = 51;
-        final int minStepOfProgression = -25;
-        int stepOfProgression = Utils.getRandomNumber(minStepOfProgression, maxStepOfProgression);
-
-        int elementOfProgression = Utils.getRandomNumber(Utils.MIN, Utils.MAX);
-        for (int i = 0; i < lengthOfProgression; i++) {
-            progression[i] = elementOfProgression;
-            elementOfProgression += stepOfProgression;
+    private static int[] buildProgression(int progressionLength, int progressionStep, int progressionElement) {
+        int[] progression = new int[progressionLength];
+        for (int i = 0; i < progressionLength; i++) {
+            progression[i] = progressionElement;
+            progressionElement += progressionStep;
         }
         return progression;
     }
 
-    private static String getQuestions(int[] progression) {
-        int positionOfAnswer = Utils.getRandomNumber(progression.length - 1);
-        answer = String.valueOf(progression[positionOfAnswer]);
-
+    private static String makeQuestion(int[] progression, int answerPosition) {
         StringBuilder stringProgression = new StringBuilder();
         for (int i = 0; i < progression.length; i++) {
-            if (i == positionOfAnswer) {
+            if (i == answerPosition) {
                 stringProgression.append(".. ");
             } else {
                 stringProgression.append(progression[i]).append(" ");
@@ -50,4 +46,5 @@ public class Progression {
         }
         return stringProgression.toString();
     }
+
 }

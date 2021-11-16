@@ -12,15 +12,15 @@ public class GCD {
         String[] questions = new String[Engine.ROUNDS];
         String[] answers = new String[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int firstNumber = Utils.getRandomNumber(maxNumber);
-            int secondNumber = Utils.getRandomNumber(maxNumber);
+            int firstNumber = Utils.getRandomNumber(0, maxNumber);
+            int secondNumber = Utils.getRandomNumber(0, maxNumber);
             questions[i] = firstNumber + " " + secondNumber;
-            answers[i] = getAnswer(firstNumber, secondNumber);
+            answers[i] = findGcd(firstNumber, secondNumber);
         }
         Engine.run(CONDITION_GAME, new String[][] {questions, answers});
     }
 
-    private static String getAnswer(int firstNumber, int secondNumber) {
+    private static String findGcd(int firstNumber, int secondNumber) {
         int difference = Math.max(firstNumber, secondNumber) - Math.min(firstNumber, secondNumber);
         int minNumber = Math.min(firstNumber, secondNumber);
         if (minNumber == 0) {
